@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Pokemon Memory Game",
+  "name": "Bug-Type Pokemon Memory Game",
   "icons": [
     {
       "src": "favicon.ico",

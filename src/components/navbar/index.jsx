@@ -6,7 +6,7 @@ const Navbar = props => {
     <nav className="sticky-top">
       <ul>
         <li>Bug-Type Pokemon Memory Game</li>
-        <li>{props.guess}</li>
+        <li className={`${props.class}`}>{props.guess}</li>
         <li>
           Score: {props.score} | Top Score: {props.topScore}
         </li>

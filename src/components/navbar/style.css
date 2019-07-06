@@ -6,19 +6,50 @@ ul {
     background-color: #333;
     display: flex;
     justify-content: space-between;
-    flex-flow: row wrap;
+    flex-flow: row nowrap;
 }
 
 li {
     display: block;
     color: white;
-    text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 12px;
 }
-
-/* Change the link color to #111 (black) on hover */
 
 li a:hover {
     background-color: #111;
+}
+
+.correct {
+    color: lawngreen;
+}
+
+.incorrect {
+    color: red;
+    animation: .8s shake infinite alternate;
+}
+
+/* https://codemyui.com/pure-css-text-shake-animation/ */
+
+@keyframes shake {
+    0% {
+        transform: skewX(-15deg);
+    }
+    5% {
+        transform: skewX(15deg);
+    }
+    10% {
+        transform: skewX(-15deg);
+    }
+    15% {
+        transform: skewX(15deg);
+    }
+    20% {
+        transform: skewX(0deg);
+    }
+    100% {
+        transform: skewX(0deg);
+    }
 }

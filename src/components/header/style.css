@@ -1,0 +1,5 @@
+div.jumbotron {
+    background-image: url('./bugBackground2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+}

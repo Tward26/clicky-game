@@ -7,5 +7,19 @@ html, body, #root {
     padding: 0;
     margin: 0;
     height: 100%;
-    background: #420175
+    background: #420175;
+}
+
+h1, h2 {
+    font-family: 'Press Start 2P', cursive;
+    color: black;
+    text-shadow: 2px 2px 4px #ffffff;
+}
+
+h1 {
+    font-size: 32px;
+}
+
+h2 {
+    font-size: 20px
 }

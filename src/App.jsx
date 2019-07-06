@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "./components/navbar/index";
-import Header from "./components/header";
+import Header from "./components/header/index";
 import Container from "./components/container/index";
 import pokemonList from "./pokemon.json";
 import PokeContainer from "./components/pokeContainer/index";
@@ -11,7 +11,8 @@ class App extends Component {
     pokemonList,
     guess: "Click an Image to begin",
     score: 0,
-    topScore: 0
+    topScore: 0,
+    class: ""
   };
 
   click = id => {
@@ -27,7 +28,8 @@ class App extends Component {
       this.setState(state => {
         return {
           score: state.score + 1,
-          guess: "Correct Guess"
+          guess: "Correct Guess",
+          class: "correct"
         };
       });
     } else {
@@ -35,7 +37,8 @@ class App extends Component {
         return {
           score: state.score + 1,
           guess: "Correct Guess",
-          topScore: state.topScore + 1
+          topScore: state.topScore + 1,
+          class: "correct"
         };
       });
     }
@@ -66,6 +69,7 @@ class App extends Component {
           return {
             score: (state.score = 0),
             guess: "Incorrect Guess - The Game has Reset",
+            class: "incorrect",
             guessedArray: []
           };
         });
@@ -95,6 +99,7 @@ class App extends Component {
           guess={this.state.guess}
           score={this.state.score}
           topScore={this.state.topScore}
+          class={this.state.class}
         />
         <Header />
         <Container>
