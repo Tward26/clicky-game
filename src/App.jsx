@@ -15,24 +15,53 @@ class App extends Component {
   };
 
   click = id => {
-    this.setState(state => {
-      return { score: state.score + 1, guess: "Correct Guess" };
-    });
-    this.clickGuess(id);
-    // console.log(this.state.guessedArray);
-    // console.log(this.state.pokemonList);
+    if (this.repeatCheck(id)) {
+      this.addToGuessedArray(id);
+      this.topScoreCheck(this.state.score);
+      this.shuffle(this.state.pokemonList);
+    }
   };
 
-  //To do list
-  //Logic to shuffle array elements
-  //Logic to update top score
-  //Logic to
+  topScoreCheck = currentScore => {
+    if (currentScore < this.state.topScore) {
+      this.setState(state => {
+        return {
+          score: state.score + 1,
+          guess: "Correct Guess"
+        };
+      });
+    } else {
+      this.setState(state => {
+        return {
+          score: state.score + 1,
+          guess: "Correct Guess",
+          topScore: state.topScore + 1
+        };
+      });
+    }
+  };
 
-  //Something still wrong with this
-  clickGuess = clickedId => {
+  /* Fisher-Yates Shuffle
+    https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+  */
+
+  shuffle = arr => {
+    const newArr = arr.slice();
+    for (let i = newArr.length - 1; i > 0; i--) {
+      const rand = Math.floor(Math.random() * (i + 1));
+      [newArr[i], newArr[rand]] = [newArr[rand], newArr[i]];
+    }
+    this.setState(state => {
+      return { pokemonList: newArr };
+    });
+  };
+
+  repeatCheck = clickId => {
     //checks to see if clickedElement has already been guessed
-    this.state.guessedArray.forEach((element, index) => {
-      if (element.id === clickedId) {
+    let notGuessed = true;
+    for (let i = 0; i < this.state.guessedArray.length; i++) {
+      if (this.state.guessedArray[i].id === clickId) {
+        this.shuffle(this.state.pokemonList);
         this.setState(state => {
           return {
             score: (state.score = 0),
@@ -40,21 +69,23 @@ class App extends Component {
             guessedArray: []
           };
         });
+        notGuessed = false;
+        return notGuessed;
       }
-    });
+    }
+    return notGuessed;
+  };
 
-    //adds clickedElement to guessedArray
+  addToGuessedArray = clickId => {
     let newGuess = null;
     this.state.pokemonList.forEach((element, index) => {
-      if (element.id === clickedId) {
+      if (element.id === clickId) {
         newGuess = this.state.pokemonList[index];
       }
     });
-    console.log("newGuess", newGuess);
     this.setState(state => ({
-      guessedArray: [...this.state.guessedArray, newGuess]
+      guessedArray: [...state.guessedArray, newGuess]
     }));
-    console.log("Updated Guess Array", this.state.guessedArray);
   };
 
   render() {
