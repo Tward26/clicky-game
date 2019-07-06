@@ -46,14 +46,6 @@ class App extends Component {
         };
       });
     }
-    if (currentScore === 12) {
-      this.setState(state => {
-        return {
-          guess: "You won, all 12 pokemon correctly guessed!",
-          class: "win"
-        };
-      });
-    }
   };
 
   /* Fisher-Yates Shuffle
