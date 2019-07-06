@@ -15,6 +15,10 @@ class App extends Component {
     class: ""
   };
 
+  componentDidMount() {
+    this.shuffle(pokemonList);
+  }
+
   click = id => {
     if (this.repeatCheck(id)) {
       this.addToGuessedArray(id);
@@ -39,6 +43,14 @@ class App extends Component {
           guess: "Correct Guess",
           topScore: state.topScore + 1,
           class: "correct"
+        };
+      });
+    }
+    if (currentScore === 12) {
+      this.setState(state => {
+        return {
+          guess: "You won, all 12 pokemon correctly guessed!",
+          class: "win"
         };
       });
     }

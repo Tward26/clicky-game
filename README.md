@@ -1,68 +1,21 @@
+# clicky-game
+
+_Bug-Type Pokemon Memory Game built using React_
+
+## Purpose:
+
+This game was an exercise for me to learn how to use the React library. I learned how to lift state, create both stateful and stateless components, and the basic ins and outs of react. While stylistically simple there was a lot going on under the hood that I hadn't previously dealt with. The game was just a fun secondary feature to the actual learning taking place.
+
+## How it works:
+
+An initial JSON file made up of an array of objects of bug-type pokemon is read in to generate the cards for the game, this is then shuffled upon mounting of the App component to randomize the initial layout. Upon a player clicking one of the pokemon cards, their clicked card is checking against the already guessed array to see if this is a repeat or not. If the item has previously been clicked in the current game state then the score is reset to Zero and a message is displayed at the top saying the guess was incorrect and the game resets. If the guess is new, then the guess is added to the guessedArray, the score is increased, as well as top score if score would be higher than the top score currently displayed. The array is then shuffled again and the player must then select another tile until they have correctly guessed all 12 without any repeats.
+
+## How to use:
+
+The game is straight-forward, click pokemon tiles that you haven't yet clicked with the goal of clicking all 12 without any repeats. If you click a tile you haven't already clicked your score increases by one and the tiles are shuffled around. If you click a tile that you have previously guessed, your score is set back to 0 and the game resets.
+
+## Contributors:
+
+This project is maintained and contributed to solely by myself, Tyler Ward. All pokemon images taken from pokemon.com
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.<br>
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br>
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br>
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
